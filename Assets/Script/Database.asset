@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fed7904e99f634299e50d0c0df954c, type: 3}
   m_Name: Database
   m_EditorClassIdentifier: 
-  ObjectsData:
+  objectsData:
   - <Name>k__BackingField: Tree
     <ID>k__BackingField: 0
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 1599950688873953161, guid: ef8330aca9b827a4e8bd8912bf38cc64,
+    <Prefab>k__BackingField: {fileID: 1599950688873953161, guid: 3fe2797e89766e345bafb0513505466e,
       type: 3}
   - <Name>k__BackingField: Rock
     <ID>k__BackingField: 1
@@ -28,8 +28,8 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 4199637819110103759, guid: 8319e1c66d9313949be86272e5e3ed8c,
       type: 3}
-  - <Name>k__BackingField: Table
+  - <Name>k__BackingField: Big Bed
     <ID>k__BackingField: 3
-    <Size>k__BackingField: {x: 2, y: 0}
-    <Prefab>k__BackingField: {fileID: 3493615974341626966, guid: c8183485a28237d4385a3c7ef8659faa,
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
       type: 3}
