@@ -18,10 +18,10 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 1599950688873953161, guid: 3fe2797e89766e345bafb0513505466e,
       type: 3}
-  - <Name>k__BackingField: Rock
+  - <Name>k__BackingField: Wall
     <ID>k__BackingField: 1
-    <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 3158941943390056176, guid: dfd174c99743c6646ab2dced141626e0,
+    <Size>k__BackingField: {x: 2, y: 1}
+    <Prefab>k__BackingField: {fileID: 5160979149902435697, guid: eeb97eccfa3f4c64d987fff798b306e6,
       type: 3}
   - <Name>k__BackingField: Spice House
     <ID>k__BackingField: 2
@@ -42,4 +42,9 @@ MonoBehaviour:
     <ID>k__BackingField: 5
     <Size>k__BackingField: {x: 2, y: 3}
     <Prefab>k__BackingField: {fileID: 1002672073782382863, guid: bd0be12e7fe661f41af763f1cebecff6,
+      type: 3}
+  - <Name>k__BackingField: fourth House
+    <ID>k__BackingField: 6
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 2224075432289242229, guid: 617d4df12bd0dd7499dc79902d83da03,
       type: 3}

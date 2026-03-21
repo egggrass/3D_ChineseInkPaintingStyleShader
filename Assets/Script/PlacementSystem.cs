@@ -42,8 +42,14 @@ public class PlacementSystem : MonoBehaviour
         floorData = new();
         furnitureData = new();
 
-        SpawnInitialObject(2, new Vector3Int(0, 0, 0));
-        SpawnInitialObject(3, new Vector3Int(5, 0, 0));
+        SpawnInitialObject(1, new Vector3Int(-7, 0, -4));
+        SpawnInitialObject(2, new Vector3Int(2, 0, -2));
+        SpawnInitialObject(3, new Vector3Int(8, 0, 0));
+        SpawnInitialObject(4, new Vector3Int(-1, 0, -4));
+        SpawnInitialObject(5, new Vector3Int(-3, 0, -5));
+        SpawnInitialObject(6, new Vector3Int(-5, 0, -4));
+     
+      
     }
 
     public void StartPlacement(int ID)
