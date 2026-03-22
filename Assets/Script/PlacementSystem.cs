@@ -33,7 +33,8 @@ public class PlacementSystem : MonoBehaviour
 
     IPlacementState buildingState;
 
-    [SerializeField]
+    public Movement movement;
+    
    // private SoundFeedback soundFeedback;
 
     private void Start()
@@ -54,6 +55,7 @@ public class PlacementSystem : MonoBehaviour
 
     public void StartPlacement(int ID)
     {
+        
         StopPlacement();
         gridVisualization.SetActive(true);
         buildingState = new PlacementState(ID,
@@ -79,8 +81,9 @@ public class PlacementSystem : MonoBehaviour
 
     private void PlaceStructure()
     {
-        if (inputManager.IsPointerOverUI())
+        if (inputManager.IsPointerOverUI() || movement.isMoving )
         {
+            preview.StopShowingPreview();
             return;
         }
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();

@@ -7,6 +7,11 @@ public class Movement : MonoBehaviour
 
     private CharacterController controller;
 
+    public bool isMoving = true;
+
+    public GameObject BuildUI;
+
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -14,6 +19,13 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Z))
+       
+            isMoving = !isMoving;
+            BuildUI.SetActive(!isMoving);
+
+        if (!isMoving) { return; }
+
         // 获取水平和垂直输入
         float moveX = Input.GetAxis("Horizontal"); // A/D 或 ←/→
         float moveZ = Input.GetAxis("Vertical");   // W/S 或 ↑/↓
@@ -24,4 +36,6 @@ public class Movement : MonoBehaviour
         // 移动
         controller.Move(move * moveSpeed * Time.deltaTime);
     }
+
+
 }
