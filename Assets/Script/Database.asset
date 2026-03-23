@@ -48,3 +48,8 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 2, y: 2}
     <Prefab>k__BackingField: {fileID: 2224075432289242229, guid: 617d4df12bd0dd7499dc79902d83da03,
       type: 3}
+  - <Name>k__BackingField: first booth
+    <ID>k__BackingField: 7
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 2376967280151650417, guid: bb8ea9fb9ec93974c97a6265cd6b0b61,
+      type: 3}
