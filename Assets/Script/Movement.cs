@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
 
     public GameObject BuildUI;
 
+
     [Header("设置")]
     public float sensitivity = 200f; // 灵敏度
 
@@ -19,9 +20,9 @@ public class Movement : MonoBehaviour
     public float yMax = 60f;  // 向上看极限
     public float xMin = -70f; // 向左看极限
     public float xMax = 70f;  // 向右看极限
-
     private float rotationX = 0f; // 垂直角度
     private float rotationY = 0f; // 水平角度
+   
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -43,9 +44,10 @@ public class Movement : MonoBehaviour
 
         // 构造移动向量（XZ平面）
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
-
+        Vector3 cameramove = transform.up * moveX + transform.right * moveZ;
         // 移动
         controller.Move(move * moveSpeed * Time.deltaTime);
+       
     }
 
     public void VisionMovement()

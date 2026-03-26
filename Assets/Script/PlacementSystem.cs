@@ -45,7 +45,7 @@ public class PlacementSystem : MonoBehaviour
 
         SpawnInitialObject(1, new Vector3Int(-6, 0, -4));
         SpawnInitialObject(2, new Vector3Int(4, 0, -1));
-        SpawnInitialObject(3, new Vector3Int(8, 0, 0));
+        SpawnInitialObject(3, new Vector3Int(8, 0, 2));
         SpawnInitialObject(4, new Vector3Int(0, 0, -4));
         SpawnInitialObject(5, new Vector3Int(-2, 0, -5));
         SpawnInitialObject(6, new Vector3Int(-4, 0, -4));
