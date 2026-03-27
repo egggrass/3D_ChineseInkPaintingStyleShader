@@ -11,21 +11,21 @@ public class RemovingState : IPlacementState
     GridData floorData;
     GridData furnitureData;
     ObjectPlacer objectPlacer;
-   // SoundFeedback soundFeedback; 
+   // SoundFeedback soundFeedback;
 
     public RemovingState(Grid grid,
                          PreviewSystem previewSystem,
                          GridData floorData,
                          GridData furnitureData,
                          ObjectPlacer objectPlacer)
-                       //  SoundFeedback soundFeedback)
+                         //SoundFeedback soundFeedback)
     {
         this.grid = grid;
         this.previewSystem = previewSystem;
         this.floorData = floorData;
         this.furnitureData = furnitureData;
         this.objectPlacer = objectPlacer;
-    //    this.soundFeedback = soundFeedback;
+       // this.soundFeedback = soundFeedback;
         previewSystem.StartShowingRemovePreview();
     }
 
@@ -37,30 +37,30 @@ public class RemovingState : IPlacementState
     public void OnAction(Vector3Int gridPosition)
     {
         GridData selectedData = null;
-        if(furnitureData.CanPlaceObjectAt(gridPosition,Vector2Int.one) == false)
+        if (furnitureData.CanPlaceObjectAt(gridPosition, Vector2Int.one) == false)
         {
             selectedData = furnitureData;
         }
-        else if(floorData.CanPlaceObjectAt(gridPosition, Vector2Int.one) == false)
+        else if (floorData.CanPlaceObjectAt(gridPosition, Vector2Int.one) == false)
         {
             selectedData = floorData;
         }
 
-        if(selectedData == null)
+        if (selectedData == null)
         {
             //sound
-           // soundFeedback.PlaySound(SoundType.wrongPlacement);
+          //  soundFeedback.PlaySound(SoundType.wrongPlacement);
         }
         else
         {
-         //   soundFeedback.PlaySound(SoundType.Remove);
+           // soundFeedback.PlaySound(SoundType.Remove);
             gameObjectIndex = selectedData.GetRepresentationIndex(gridPosition);
             if (gameObjectIndex == -1)
                 return;
             selectedData.RemoveObjectAt(gridPosition);
             objectPlacer.RemoveObjectAt(gameObjectIndex);
         }
-        Vector3 cellPosition = grid.GetCellCenterWorld(gridPosition);
+        Vector3 cellPosition = grid.CellToWorld(gridPosition);
         previewSystem.UpdatePosition(cellPosition, CheckIfSelectionIsValid(gridPosition));
     }
 
@@ -73,6 +73,6 @@ public class RemovingState : IPlacementState
     public void UpdateState(Vector3Int gridPosition)
     {
         bool validity = CheckIfSelectionIsValid(gridPosition);
-        previewSystem.UpdatePosition(grid.GetCellCenterWorld(gridPosition), validity);
+        previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), validity);
     }
 }

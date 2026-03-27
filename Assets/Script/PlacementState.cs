@@ -13,7 +13,7 @@ public class PlacementState : IPlacementState
     GridData floorData;
     GridData furnitureData;
     ObjectPlacer objectPlacer;
-    //SoundFeedback soundFeedback;
+   // SoundFeedback soundFeedback;
 
     public PlacementState(int iD,
                           Grid grid,
@@ -21,9 +21,8 @@ public class PlacementState : IPlacementState
                           ObjectsDatabaseSO database,
                           GridData floorData,
                           GridData furnitureData,
-                          ObjectPlacer objectPlacer
-        //SoundFeedback soundFeedback
-        )
+                          ObjectPlacer objectPlacer)
+                          //SoundFeedback soundFeedback
     {
         ID = iD;
         this.grid = grid;
@@ -57,12 +56,12 @@ public class PlacementState : IPlacementState
         bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
         if (placementValidity == false)
         {
-            // soundFeedback.PlaySound(SoundType.wrongPlacement);
+           // soundFeedback.PlaySound(SoundType.wrongPlacement);
             return;
         }
-        // soundFeedback.PlaySound(SoundType.Place);
+      //  soundFeedback.PlaySound(SoundType.Place);
         int index = objectPlacer.PlaceObject(database.objectsData[selectedObjectIndex].Prefab,
-            grid.GetCellCenterWorld(gridPosition));
+            grid.CellToWorld(gridPosition));
 
         GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ?
             floorData :
@@ -72,7 +71,7 @@ public class PlacementState : IPlacementState
             database.objectsData[selectedObjectIndex].ID,
             index);
 
-        previewSystem.UpdatePosition(grid.GetCellCenterWorld(gridPosition), false);
+        previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), false);
     }
 
     private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
@@ -88,7 +87,7 @@ public class PlacementState : IPlacementState
     {
         bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
 
-        previewSystem.UpdatePosition(grid.GetCellCenterWorld(gridPosition), placementValidity);
+        previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), placementValidity);
     }
 }
 
