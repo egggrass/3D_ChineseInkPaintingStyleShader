@@ -29,13 +29,14 @@ public class PlacementSystemTest : MonoBehaviour
 
     IPlacementState placementState;
 
+    public Movement movement;
 
     private void Start()
     {
         StopPlacement();
         floorData = new ();
         furnitureData = new();
-       
+        LoadSceneView();
     }
 
     public void StartPlacement(int ID)
@@ -58,7 +59,7 @@ public class PlacementSystemTest : MonoBehaviour
     }
     private void PlaceStructure()
     {
-        if (inputManager.IsPointerOverUI())
+        if (inputManager.IsPointerOverUI() || movement.isMoving)
         {
             return;
         }
@@ -103,5 +104,37 @@ public class PlacementSystemTest : MonoBehaviour
             lastDetectedPosition = gridPosition;
         }
        
+    }
+
+    private void SpawnInitialObject(int objectID, Vector3Int gridPosition)
+    {
+        // 1. 从数据库找到该物体的信息 (根据 ID)
+        int selectedObjectIndex = database.objectsData.FindIndex(data => data.ID == objectID);
+        if (selectedObjectIndex == -1) return; // 没找到 ID
+
+        var itemData = database.objectsData[selectedObjectIndex];
+
+        // 2. 计算物理世界位置
+        // 注意：如果你的 Pivot 在左下角且要用之前讨论的对齐中心预览逻辑，这里要加偏移
+        Vector3 worldPosition = grid.CellToWorld(gridPosition);
+
+        // 3. 通知 ObjectPlacer 生成模型，并获取它在列表中的索引
+        int placedObjectIndex = objectPlacer.PlaceObject(itemData.Prefab, worldPosition);
+
+        // 4. 根据物体的 ID 判断它是地板还是家具，并存入对应的 GridData
+        GridData selectedData = itemData.ID == 0 ? floorData : furnitureData;
+
+        // 5. 让逻辑层记录下这个物体
+        selectedData.AddObjectAt(gridPosition, itemData.Size, itemData.ID, placedObjectIndex);
+    }
+    public void LoadSceneView()
+    {
+        SpawnInitialObject(1, new Vector3Int(-6, 0, -4));
+        SpawnInitialObject(2, new Vector3Int(4, 0, -1));
+        SpawnInitialObject(3, new Vector3Int(8, 0, 2));
+        SpawnInitialObject(4, new Vector3Int(0, 0, -4));
+        SpawnInitialObject(5, new Vector3Int(-2, 0, -5));
+        SpawnInitialObject(6, new Vector3Int(-4, 0, -4));
+        SpawnInitialObject(7, new Vector3Int(2, 0, -5));
     }
 }

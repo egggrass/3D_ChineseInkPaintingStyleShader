@@ -20,13 +20,13 @@ MonoBehaviour:
       type: 3}
   - <Name>k__BackingField: Wall
     <ID>k__BackingField: 1
-    <Size>k__BackingField: {x: 2, y: 2}
-    <Prefab>k__BackingField: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
+    <Size>k__BackingField: {x: 2, y: 1}
+    <Prefab>k__BackingField: {fileID: 3387070050926367487, guid: eeb97eccfa3f4c64d987fff798b306e6,
       type: 3}
   - <Name>k__BackingField: Spice House
     <ID>k__BackingField: 2
-    <Size>k__BackingField: {x: 4, y: 4}
-    <Prefab>k__BackingField: {fileID: 1133564943901443484, guid: b67e09904053c114e8615fe3e746ad1e,
+    <Size>k__BackingField: {x: 2, y: 4}
+    <Prefab>k__BackingField: {fileID: 5119233229659229744, guid: b67e09904053c114e8615fe3e746ad1e,
       type: 3}
   - <Name>k__BackingField: First House
     <ID>k__BackingField: 3
@@ -51,5 +51,5 @@ MonoBehaviour:
   - <Name>k__BackingField: first booth
     <ID>k__BackingField: 7
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 2376967280151650417, guid: bb8ea9fb9ec93974c97a6265cd6b0b61,
+    <Prefab>k__BackingField: {fileID: 768082535398862581, guid: bb8ea9fb9ec93974c97a6265cd6b0b61,
       type: 3}

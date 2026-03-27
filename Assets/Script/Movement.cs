@@ -10,7 +10,8 @@ public class Movement : MonoBehaviour
     public bool isMoving = true;
 
     public GameObject BuildUI;
-
+    public GameObject head;
+    public PreviewSystem preview;
 
     [Header("设置")]
     public float sensitivity = 200f; // 灵敏度
@@ -34,9 +35,9 @@ public class Movement : MonoBehaviour
        
             isMoving = !isMoving;
             BuildUI.SetActive(!isMoving);
-
+            
         if (!isMoving) { return; }
-
+        preview.StopShowingPreview();
         VisionMovement();
         // 获取水平和垂直输入
         float moveX = Input.GetAxis("Horizontal"); // A/D 或 ←/→
@@ -65,6 +66,6 @@ public class Movement : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, yMin, yMax);
 
         // 3. 一键应用旋转
-        transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0f);
+        head.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0f);
     }
 }
