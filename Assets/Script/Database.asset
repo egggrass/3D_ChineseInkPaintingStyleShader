@@ -20,8 +20,8 @@ MonoBehaviour:
       type: 3}
   - <Name>k__BackingField: Wall
     <ID>k__BackingField: 1
-    <Size>k__BackingField: {x: 2, y: 1}
-    <Prefab>k__BackingField: {fileID: 5160979149902435697, guid: eeb97eccfa3f4c64d987fff798b306e6,
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
       type: 3}
   - <Name>k__BackingField: Spice House
     <ID>k__BackingField: 2
@@ -30,7 +30,7 @@ MonoBehaviour:
       type: 3}
   - <Name>k__BackingField: First House
     <ID>k__BackingField: 3
-    <Size>k__BackingField: {x: 4, y: 2}
+    <Size>k__BackingField: {x: 4, y: 3}
     <Prefab>k__BackingField: {fileID: 1095954619089992515, guid: aaf69575ebbb79441a653e5ded4f4294,
       type: 3}
   - <Name>k__BackingField: Second House
