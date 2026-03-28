@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     public bool isMoving = true;
 
     public GameObject BuildUI;
-    public GameObject head;
+   // public GameObject head;
     public PreviewSystem preview;
 
     [Header("设置")]
@@ -66,6 +66,6 @@ public class Movement : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, yMin, yMax);
 
         // 3. 一键应用旋转
-        head.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0f);
+       transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0f);
     }
 }
