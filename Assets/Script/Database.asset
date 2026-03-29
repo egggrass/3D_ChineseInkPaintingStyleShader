@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Database
   m_EditorClassIdentifier: 
   objectsData:
-  - <Name>k__BackingField: Tree
+  - <Name>k__BackingField: Character
     <ID>k__BackingField: 0
-    <Size>k__BackingField: {x: 2, y: 2}
-    <Prefab>k__BackingField: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 6023762561644598058, guid: 0ef3c289e2df5b94f809ded9c87ceff4,
       type: 3}
   - <Name>k__BackingField: Wall
     <ID>k__BackingField: 1
@@ -26,7 +26,7 @@ MonoBehaviour:
   - <Name>k__BackingField: Spice House
     <ID>k__BackingField: 2
     <Size>k__BackingField: {x: 2, y: 4}
-    <Prefab>k__BackingField: {fileID: 5119233229659229744, guid: b67e09904053c114e8615fe3e746ad1e,
+    <Prefab>k__BackingField: {fileID: 6344793530880487229, guid: b67e09904053c114e8615fe3e746ad1e,
       type: 3}
   - <Name>k__BackingField: First House
     <ID>k__BackingField: 3
@@ -41,7 +41,7 @@ MonoBehaviour:
   - <Name>k__BackingField: Third House
     <ID>k__BackingField: 5
     <Size>k__BackingField: {x: 2, y: 3}
-    <Prefab>k__BackingField: {fileID: 5589513241869176369, guid: fc2f38314204b4b42af90054bc6b7638,
+    <Prefab>k__BackingField: {fileID: 5379701811601288458, guid: fc2f38314204b4b42af90054bc6b7638,
       type: 3}
   - <Name>k__BackingField: fourth House
     <ID>k__BackingField: 6
@@ -52,4 +52,24 @@ MonoBehaviour:
     <ID>k__BackingField: 7
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 768082535398862581, guid: bb8ea9fb9ec93974c97a6265cd6b0b61,
+      type: 3}
+  - <Name>k__BackingField: Carriage
+    <ID>k__BackingField: 8
+    <Size>k__BackingField: {x: 2, y: 1}
+    <Prefab>k__BackingField: {fileID: 2816391727273203381, guid: e0f8e9b6e409f4144b64797da12dd56e,
+      type: 3}
+  - <Name>k__BackingField: fifth house
+    <ID>k__BackingField: 9
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 9098452115405588969, guid: 660897f2ef4375b4aa4e11980d142f9b,
+      type: 3}
+  - <Name>k__BackingField: six house
+    <ID>k__BackingField: 10
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 8228745340084211855, guid: 2df12d648c9257545bede7ea5227daad,
+      type: 3}
+  - <Name>k__BackingField: seventh house
+    <ID>k__BackingField: 10
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 3202265278410977424, guid: 4f2dfe03ab6605140b55b12a92b13f83,
       type: 3}
