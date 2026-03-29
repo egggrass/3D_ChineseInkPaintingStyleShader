@@ -46,19 +46,11 @@ public class GridData
         return true;
     }
 
-    private List<Vector3Int> CalculatePositions(
-        Vector3Int gridPosition,
-        Vector2Int objectSize,
-        int rotation
-    )
+    // 在 GridData.cs 中
+    private List<Vector3Int> CalculatePositions(Vector3Int gridPosition, Vector2Int size, int rotation)
     {
         List<Vector3Int> result = new();
-
-        Vector2Int size = objectSize;
-
-        if (rotation == 90 || rotation == 270)
-            size = new Vector2Int(objectSize.y, objectSize.x);
-
+        // 既然外面已经传进来了 rotatedSize，这里直接循环即可
         for (int x = 0; x < size.x; x++)
         {
             for (int y = 0; y < size.y; y++)
@@ -66,7 +58,6 @@ public class GridData
                 result.Add(gridPosition + new Vector3Int(x, 0, y));
             }
         }
-
         return result;
     }
 

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPlacer : MonoBehaviour
@@ -6,6 +6,7 @@ public class ObjectPlacer : MonoBehaviour
     [SerializeField]
     private List<GameObject> placedGameObjects = new();
 
+    // 🚩 核心：确保传入的 position 已经是加上 Offset 后的最终物理坐标
     public int PlaceObject(GameObject prefab, Vector3 position, int rotation)
     {
         GameObject newObject = Instantiate(prefab);
@@ -18,7 +19,7 @@ public class ObjectPlacer : MonoBehaviour
 
     internal void RemoveObjectAt(int gameObjectIndex)
     {
-        if (placedGameObjects.Count <= gameObjectIndex
+        if (gameObjectIndex < 0 || gameObjectIndex >= placedGameObjects.Count
             || placedGameObjects[gameObjectIndex] == null)
             return;
 

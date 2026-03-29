@@ -49,11 +49,6 @@ public class PreviewSystem : MonoBehaviour
         }
     }
 
-    public void UpdateSize(Vector2Int size)
-    {
-        PrepareCursor(size);
-    }
-
     public void StopShowingPreview()
     {
         cellIndicator.SetActive(false);
@@ -61,25 +56,20 @@ public class PreviewSystem : MonoBehaviour
             Destroy(previewObject);
     }
 
-    public void UpdatePosition(
-        Vector3 position,
-        bool validity,
-        Vector2Int rotatedSize,
-        int rotation
-   )
+    // 🚩 修正：增加 originalSize 参数，内部处理 Offset
+    public void UpdatePosition(Vector3 position, bool validity, Vector2Int rotatedSize, int rotation, Vector2Int originalSize)
     {
-        // 1️⃣ 更新 previewObject
         if (previewObject != null)
         {
-            MovePreview(position);
-            UpdateRotation(rotation);
-            PrepareCursor(rotatedSize); // scale 用旋转后的大小
-            ApplyFeedbackToPreview(validity);
+            Vector3 offset = GetOffset(originalSize, rotation);
+            previewObject.transform.position = position + offset + new Vector3(0, previewYOffset, 0);
+            previewObject.transform.rotation = Quaternion.Euler(0, rotation, 0);
         }
 
-        // 2️⃣ 更新 cellIndicator
-        MoveCursor(position, rotation); // offset 用原始大小
+        cellIndicator.transform.position = position;
+        PrepareCursor(rotatedSize);
         ApplyFeedbackToCursor(validity);
+        ApplyFeedbackToPreview(validity);
     }
 
     private void ApplyFeedbackToPreview(bool validity)
@@ -96,20 +86,6 @@ public class PreviewSystem : MonoBehaviour
         cellIndicatorRenderer.material.color = c;
     }
 
-    public void MoveCursor(Vector3 position,  int rotation)
-    {
-    
-        cellIndicator.transform.position = position;
-    }
-
-    private void MovePreview(Vector3 position)
-    {
-        previewObject.transform.position = new Vector3(
-            position.x,
-            position.y + previewYOffset,
-            position.z);
-    }
-
     internal void StartShowingRemovePreview()
     {
         cellIndicator.SetActive(true);
@@ -117,24 +93,15 @@ public class PreviewSystem : MonoBehaviour
         ApplyFeedbackToCursor(false);
     }
 
-    public void UpdateRotation(int rotation)
-    {
-        if (previewObject != null)
-            previewObject.transform.rotation = Quaternion.Euler(0, rotation, 0);
-           
-    }
-
-    /// <summary>
-    /// 计算左下角 pivot 对齐偏移
-    /// </summary>
-    private Vector3 GetOffset(Vector2Int size, int rotation)
+    // 🚩 修正：计算左下角 Pivot 旋转后的位移补偿
+    public Vector3 GetOffset(Vector2Int size, int rotation)
     {
         switch (rotation)
         {
             case 0: return Vector3.zero;
-            case 90: return new Vector3(size.y - 1, 0, 0);
-            case 180: return new Vector3(size.x - 1, 0, size.y - 1);
-            case 270: return new Vector3(0, 0, size.x - 1);
+            case 90: return new Vector3(size.y, 0, 0);
+            case 180: return new Vector3(size.x, 0, size.y);
+            case 270: return new Vector3(0, 0, size.x);
             default: return Vector3.zero;
         }
     }

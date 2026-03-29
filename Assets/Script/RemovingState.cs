@@ -1,14 +1,12 @@
-﻿using System.Drawing;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RemovingState : IPlacementState
 {
-    Grid grid;
-    PreviewSystem previewSystem;
-    GridData floorData;
-    GridData furnitureData;
-    ObjectPlacer objectPlacer;
-    
+    private Grid grid;
+    private PreviewSystem previewSystem;
+    private GridData floorData;
+    private GridData furnitureData;
+    private ObjectPlacer objectPlacer;
 
     public RemovingState(
         Grid grid,
@@ -43,11 +41,11 @@ public class RemovingState : IPlacementState
         if (index == -1)
             return;
 
+        // 移除逻辑：GridData 会根据该位置存储的 data.occupiedPositions 自动清空所有占用格子
         selectedData.RemoveObjectAt(gridPosition);
         objectPlacer.RemoveObjectAt(index);
     }
 
-    // ✅ 核心：统一查询逻辑
     private GridData GetDataAtPosition(Vector3Int gridPosition)
     {
         if (furnitureData.GetRepresentationIndex(gridPosition) != -1)
@@ -69,16 +67,16 @@ public class RemovingState : IPlacementState
         bool isValid = CheckIfSelectionIsValid(gridPosition);
         Vector3 worldPos = grid.CellToWorld(gridPosition);
 
-      
-        // 👇 基础版（1x1）
+        // 🚩 修正：匹配 PreviewSystem 新的参数签名
+        // 移除预览不需要旋转，大小固定为 1x1
         previewSystem.UpdatePosition(
             worldPos,
             isValid,
-            Vector2Int.one,
-            0
-
+            Vector2Int.one, // rotatedSize
+            0,              // rotation
+            Vector2Int.one  // originalSize
         );
     }
 
-    public void Rotate() { }
+    public void Rotate() { } // 移除模式下无需旋转
 }

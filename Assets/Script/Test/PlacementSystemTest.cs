@@ -1,4 +1,4 @@
-using NUnit.Framework;
+ï»¿using NUnit.Framework;
 using System;
 using UnityEngine;
 using System.Collections.Generic;
@@ -113,26 +113,26 @@ public class PlacementSystemTest : MonoBehaviour
 
     }
 
+    // åœ¨ PlacementSystemTest.cs ä¸­ä¿®æ­£è¿™ä¸ªæ–¹æ³•
     private void SpawnInitialObject(int objectID, Vector3Int gridPosition)
     {
-        // 1. ´ÓÊı¾İ¿âÕÒµ½¸ÃÎïÌåµÄĞÅÏ¢ (¸ù¾İ ID)
         int selectedObjectIndex = database.objectsData.FindIndex(data => data.ID == objectID);
-        if (selectedObjectIndex == -1) return; // Ã»ÕÒµ½ ID
+        if (selectedObjectIndex == -1) return;
 
         var itemData = database.objectsData[selectedObjectIndex];
 
-        // 2. ¼ÆËãÎïÀíÊÀ½çÎ»ÖÃ
-        // ×¢Òâ£ºÈç¹ûÄãµÄ Pivot ÔÚ×óÏÂ½ÇÇÒÒªÓÃÖ®Ç°ÌÖÂÛµÄ¶ÔÆëÖĞĞÄÔ¤ÀÀÂß¼­£¬ÕâÀïÒª¼ÓÆ«ÒÆ
-        Vector3 worldPosition = grid.CellToWorld(gridPosition);
+        // ğŸš© å…³é”®ç‚¹ï¼šåˆå§‹ç”Ÿæˆé»˜è®¤ä¸º 0 åº¦æ—‹è½¬ï¼Œåç§»é‡é€šå¸¸ä¸º Vector3.zero
+        // ä½†å¦‚æœä»¥åä½ æƒ³åˆå§‹ç”Ÿæˆæ—‹è½¬åçš„ç‰©ä½“ï¼Œè¿™é‡Œå¿…é¡»è°ƒç”¨ preview.GetOffset
+        int initialRotation = 0;
+        Vector3 offset = preview.GetOffset(itemData.Size, initialRotation);
+        Vector3 worldPosition = grid.CellToWorld(gridPosition) + offset;
 
-        // 3. Í¨Öª ObjectPlacer Éú³ÉÄ£ĞÍ£¬²¢»ñÈ¡ËüÔÚÁĞ±íÖĞµÄË÷Òı
-        int placedObjectIndex = objectPlacer.PlaceObject(itemData.Prefab, worldPosition, 0);
+        int placedObjectIndex = objectPlacer.PlaceObject(itemData.Prefab, worldPosition, initialRotation);
 
-        // 4. ¸ù¾İÎïÌåµÄ ID ÅĞ¶ÏËüÊÇµØ°å»¹ÊÇ¼Ò¾ß£¬²¢´æÈë¶ÔÓ¦µÄ GridData
         GridData selectedData = itemData.ID == 0 ? floorData : furnitureData;
 
-        // 5. ÈÃÂß¼­²ã¼ÇÂ¼ÏÂÕâ¸öÎïÌå
-        selectedData.AddObjectAt(gridPosition, itemData.Size, itemData.ID, placedObjectIndex,0);
+        // åˆå§‹ç”Ÿæˆé»˜è®¤ä¸æ—‹è½¬ï¼Œæ‰€ä»¥ç›´æ¥ç”¨ itemData.Size
+        selectedData.AddObjectAt(gridPosition, itemData.Size, itemData.ID, placedObjectIndex, initialRotation);
     }
     public void LoadSceneView()
     {
