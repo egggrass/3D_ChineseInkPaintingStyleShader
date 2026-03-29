@@ -15,8 +15,8 @@ MonoBehaviour:
   objectsData:
   - <Name>k__BackingField: Tree
     <ID>k__BackingField: 0
-    <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 1599950688873953161, guid: 3fe2797e89766e345bafb0513505466e,
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 3487007735555770654, guid: 4721f1b576334dc46b3c72470bf613e3,
       type: 3}
   - <Name>k__BackingField: Wall
     <ID>k__BackingField: 1
@@ -31,22 +31,22 @@ MonoBehaviour:
   - <Name>k__BackingField: First House
     <ID>k__BackingField: 3
     <Size>k__BackingField: {x: 4, y: 3}
-    <Prefab>k__BackingField: {fileID: 1095954619089992515, guid: aaf69575ebbb79441a653e5ded4f4294,
+    <Prefab>k__BackingField: {fileID: 6185095192740379331, guid: aaf69575ebbb79441a653e5ded4f4294,
       type: 3}
   - <Name>k__BackingField: Second House
     <ID>k__BackingField: 4
     <Size>k__BackingField: {x: 4, y: 2}
-    <Prefab>k__BackingField: {fileID: 5253295775623778388, guid: 1039ee19bdf501f48986615e4e10de78,
+    <Prefab>k__BackingField: {fileID: 5817186695621015986, guid: 1039ee19bdf501f48986615e4e10de78,
       type: 3}
   - <Name>k__BackingField: Third House
     <ID>k__BackingField: 5
     <Size>k__BackingField: {x: 2, y: 3}
-    <Prefab>k__BackingField: {fileID: 1002672073782382863, guid: bd0be12e7fe661f41af763f1cebecff6,
+    <Prefab>k__BackingField: {fileID: 5589513241869176369, guid: fc2f38314204b4b42af90054bc6b7638,
       type: 3}
   - <Name>k__BackingField: fourth House
     <ID>k__BackingField: 6
     <Size>k__BackingField: {x: 2, y: 2}
-    <Prefab>k__BackingField: {fileID: 2224075432289242229, guid: 617d4df12bd0dd7499dc79902d83da03,
+    <Prefab>k__BackingField: {fileID: 4388492650459055362, guid: 617d4df12bd0dd7499dc79902d83da03,
       type: 3}
   - <Name>k__BackingField: first booth
     <ID>k__BackingField: 7

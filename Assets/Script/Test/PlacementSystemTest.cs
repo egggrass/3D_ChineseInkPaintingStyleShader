@@ -93,17 +93,24 @@ public class PlacementSystemTest : MonoBehaviour
     private void Update()
     {
         if (placementState == null)
-        return; 
-        
+            return;
+
+       
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
 
-        if(lastDetectedPosition != gridPosition)
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            placementState.Rotate();
+            placementState.UpdateState(gridPosition);
+        }
+
+        if (lastDetectedPosition != gridPosition)
         {
             placementState.UpdateState(gridPosition);
             lastDetectedPosition = gridPosition;
         }
-       
+
     }
 
     private void SpawnInitialObject(int objectID, Vector3Int gridPosition)
@@ -119,13 +126,13 @@ public class PlacementSystemTest : MonoBehaviour
         Vector3 worldPosition = grid.CellToWorld(gridPosition);
 
         // 3. 通知 ObjectPlacer 生成模型，并获取它在列表中的索引
-        int placedObjectIndex = objectPlacer.PlaceObject(itemData.Prefab, worldPosition);
+        int placedObjectIndex = objectPlacer.PlaceObject(itemData.Prefab, worldPosition, 0);
 
         // 4. 根据物体的 ID 判断它是地板还是家具，并存入对应的 GridData
         GridData selectedData = itemData.ID == 0 ? floorData : furnitureData;
 
         // 5. 让逻辑层记录下这个物体
-        selectedData.AddObjectAt(gridPosition, itemData.Size, itemData.ID, placedObjectIndex);
+        selectedData.AddObjectAt(gridPosition, itemData.Size, itemData.ID, placedObjectIndex,0);
     }
     public void LoadSceneView()
     {

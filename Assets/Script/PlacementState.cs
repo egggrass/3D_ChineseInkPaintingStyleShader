@@ -1,93 +1,112 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 public class PlacementState : IPlacementState
 {
-    private int selectedObjectIndex = -1;
-    int ID;
-    Grid grid;
-    PreviewSystem previewSystem;
-    ObjectsDatabaseSO database;
-    GridData floorData;
-    GridData furnitureData;
-    ObjectPlacer objectPlacer;
-   // SoundFeedback soundFeedback;
+    private int selectedObjectIndex;
+    private Grid grid;
+    private PreviewSystem preview;
+    private ObjectsDatabaseSO database;
+    private GridData floorData;
+    private GridData furnitureData;
+    private ObjectPlacer objectPlacer;
 
-    public PlacementState(int iD,
-                          Grid grid,
-                          PreviewSystem previewSystem,
-                          ObjectsDatabaseSO database,
-                          GridData floorData,
-                          GridData furnitureData,
-                          ObjectPlacer objectPlacer)
-                          //SoundFeedback soundFeedback
+    private int rotation = 0;
+
+    public PlacementState(
+        int ID,
+        Grid grid,
+        PreviewSystem preview,
+        ObjectsDatabaseSO database,
+        GridData floorData,
+        GridData furnitureData,
+        ObjectPlacer objectPlacer)
     {
-        ID = iD;
         this.grid = grid;
-        this.previewSystem = previewSystem;
+        this.preview = preview;
         this.database = database;
         this.floorData = floorData;
         this.furnitureData = furnitureData;
         this.objectPlacer = objectPlacer;
-        //this.soundFeedback = soundFeedback;
 
-        selectedObjectIndex = database.objectsData.FindIndex(data => data.ID == ID);
-        if (selectedObjectIndex > -1)
-        {
-            previewSystem.StartShowingPlacementPreview(
-                database.objectsData[selectedObjectIndex].Prefab,
-                database.objectsData[selectedObjectIndex].Size);
-        }
-        else
-            throw new System.Exception($"No object with ID {iD}");
+        selectedObjectIndex =
+            database.objectsData.FindIndex(data => data.ID == ID);
 
+        var data = database.objectsData[selectedObjectIndex];
+
+        preview.StartShowingPlacementPreview(
+            data.Prefab,
+            GetRotatedSize(data.Size)
+        );
+    }
+
+    public void Rotate()
+    {
+        rotation += 90;
+        if (rotation >= 360)
+            rotation = 0;
     }
 
     public void EndState()
     {
-        previewSystem.StopShowingPreview();
+        preview.StopShowingPreview();
     }
 
     public void OnAction(Vector3Int gridPosition)
     {
+        var data = database.objectsData[selectedObjectIndex];
 
-        bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
-        if (placementValidity == false)
-        {
-           // soundFeedback.PlaySound(SoundType.wrongPlacement);
+        GridData selectedData =
+            data.ID == 0 ? floorData : furnitureData;
+
+        if (!selectedData.CanPlaceObjectAt(
+            gridPosition,
+            data.Size,
+            rotation))
             return;
-        }
-      //  soundFeedback.PlaySound(SoundType.Place);
-        int index = objectPlacer.PlaceObject(database.objectsData[selectedObjectIndex].Prefab,
-            grid.CellToWorld(gridPosition));
 
-        GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ?
-            floorData :
-            furnitureData;
-        selectedData.AddObjectAt(gridPosition,
-            database.objectsData[selectedObjectIndex].Size,
-            database.objectsData[selectedObjectIndex].ID,
-            index);
+        int index = objectPlacer.PlaceObject(
+            data.Prefab,
+            grid.CellToWorld(gridPosition),
+            rotation);
 
-        previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), false);
-    }
-
-    private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
-    {
-        GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ?
-            floorData :
-            furnitureData;
-
-        return selectedData.CanPlaceObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size);
+        selectedData.AddObjectAt(
+            gridPosition,
+            data.Size,
+            data.ID,
+            index,
+            rotation);
     }
 
     public void UpdateState(Vector3Int gridPosition)
     {
-        bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
+        var data = database.objectsData[selectedObjectIndex];
 
-        previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), placementValidity);
+        GridData selectedData =
+            data.ID == 0 ? floorData : furnitureData;
+
+        bool canPlace = selectedData.CanPlaceObjectAt(
+            gridPosition,
+            data.Size,
+            rotation);
+
+        Vector2Int originalSize = data.Size;
+        Vector2Int rotatedSize = GetRotatedSize(data.Size);
+
+        preview.UpdatePosition(
+            grid.CellToWorld(gridPosition),
+            canPlace,
+            rotatedSize,   // 给显示
+            rotation
+        );
+    
+
+    }
+
+    private Vector2Int GetRotatedSize(Vector2Int size)
+    {
+        if (rotation == 90 || rotation == 270)
+            return new Vector2Int(size.y, size.x);
+
+        return size;
     }
 }
-
