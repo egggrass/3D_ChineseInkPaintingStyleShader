@@ -1596,7 +1596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a734a2f5976e4a40bd4376fcfc7798f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneCamera: {fileID: 1108544639}
+  sceneCamera: {fileID: 1903130673}
   placementLayermask:
     serializedVersion: 2
     m_Bits: 8
@@ -3916,7 +3916,6 @@ MonoBehaviour:
   moveSpeed: 0.8
   isMoving: 1
   BuildUI: {fileID: 88464250}
-  head: {fileID: 1886137875}
   preview: {fileID: 999550396}
   sensitivity: 100
   yMin: -60
@@ -4016,6 +4015,7 @@ Transform:
   m_Children:
   - {fileID: 1054822608}
   - {fileID: 2138995006}
+  - {fileID: 1903130672}
   - {fileID: 1886137876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4592,8 +4592,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1903130672}
+  m_Children: []
   m_Father: {fileID: 1395710552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1903130671
@@ -4626,7 +4625,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1886137876}
+  m_Father: {fileID: 1395710552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1903130673
 Camera:
