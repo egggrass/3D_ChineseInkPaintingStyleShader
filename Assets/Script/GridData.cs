@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,16 +46,19 @@ public class GridData
         return true;
     }
 
-    // ÔÚ GridData.cs ÖĞ
+    // åœ¨ GridData.cs ä¸­
+    // GridData.cs
     private List<Vector3Int> CalculatePositions(Vector3Int gridPosition, Vector2Int size, int rotation)
     {
         List<Vector3Int> result = new();
-        // ¼ÈÈ»ÍâÃæÒÑ¾­´«½øÀ´ÁË rotatedSize£¬ÕâÀïÖ±½ÓÑ­»·¼´¿É
+
+        // ğŸš© æ ¸å¿ƒï¼šsize å·²ç»æ˜¯ rotatedSizeã€‚
+        // æˆ‘ä»¬åªè´Ÿè´£ä»èµ·ç‚¹å¼€å§‹ï¼Œå‘å³å¡« X ä¸ªï¼Œå‘ä¸Šå¡« Y ä¸ªã€‚
         for (int x = 0; x < size.x; x++)
         {
-            for (int y = 0; y < size.y; y++)
+            for (int z = 0; z < size.y; z++)
             {
-                result.Add(gridPosition + new Vector3Int(x, 0, y));
+                result.Add(gridPosition + new Vector3Int(x, 0, z));
             }
         }
         return result;

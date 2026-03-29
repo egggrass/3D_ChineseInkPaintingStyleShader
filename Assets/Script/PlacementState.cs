@@ -37,24 +37,25 @@ public class PlacementState : IPlacementState
         preview.StopShowingPreview();
     }
 
+    // PlacementState.cs
+    // PlacementState.cs
     public void OnAction(Vector3Int gridPosition)
     {
         var data = database.objectsData[selectedObjectIndex];
         GridData selectedData = data.ID == 0 ? floorData : furnitureData;
 
-        // 🚩 修正：使用旋转后的尺寸判断合法性
         Vector2Int rotatedSize = GetRotatedSize(data.Size);
 
         if (!selectedData.CanPlaceObjectAt(gridPosition, rotatedSize, rotation))
             return;
 
-        // 🚩 修正：获取偏移量并应用到放置位置
-        Vector3 offset = preview.GetOffset(data.Size, rotation);
-        Vector3 worldPos = grid.CellToWorld(gridPosition) + offset;
+        // 🚩 使用中心对齐逻辑计算最终物理位置
+        Vector3 worldPosOrigin = grid.CellToWorld(gridPosition);
+        Vector3 finalOffset = preview.GetModelPlacementOffset(data.Size, rotatedSize, rotation);
+        Vector3 finalWorldPos = worldPosOrigin + finalOffset;
 
-        int index = objectPlacer.PlaceObject(data.Prefab, worldPos, rotation);
+        int index = objectPlacer.PlaceObject(data.Prefab, finalWorldPos, rotation);
 
-        // 🚩 修正：在 GridData 中记录旋转后的实际占用面积
         selectedData.AddObjectAt(gridPosition, rotatedSize, data.ID, index, rotation);
     }
 
