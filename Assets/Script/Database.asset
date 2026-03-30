@@ -30,7 +30,7 @@ MonoBehaviour:
       type: 3}
   - <Name>k__BackingField: First House
     <ID>k__BackingField: 3
-    <Size>k__BackingField: {x: 4, y: 3}
+    <Size>k__BackingField: {x: 3, y: 4}
     <Prefab>k__BackingField: {fileID: 1105068170252830845, guid: aaf69575ebbb79441a653e5ded4f4294,
       type: 3}
   - <Name>k__BackingField: Second House
