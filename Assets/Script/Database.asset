@@ -25,13 +25,13 @@ MonoBehaviour:
       type: 3}
   - <Name>k__BackingField: Spice House
     <ID>k__BackingField: 2
-    <Size>k__BackingField: {x: 2, y: 4}
+    <Size>k__BackingField: {x: 3, y: 4}
     <Prefab>k__BackingField: {fileID: 6344793530880487229, guid: b67e09904053c114e8615fe3e746ad1e,
       type: 3}
   - <Name>k__BackingField: First House
     <ID>k__BackingField: 3
     <Size>k__BackingField: {x: 4, y: 3}
-    <Prefab>k__BackingField: {fileID: 6185095192740379331, guid: aaf69575ebbb79441a653e5ded4f4294,
+    <Prefab>k__BackingField: {fileID: 1105068170252830845, guid: aaf69575ebbb79441a653e5ded4f4294,
       type: 3}
   - <Name>k__BackingField: Second House
     <ID>k__BackingField: 4
@@ -51,7 +51,7 @@ MonoBehaviour:
   - <Name>k__BackingField: first booth
     <ID>k__BackingField: 7
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 768082535398862581, guid: bb8ea9fb9ec93974c97a6265cd6b0b61,
+    <Prefab>k__BackingField: {fileID: 882213908948629028, guid: bb8ea9fb9ec93974c97a6265cd6b0b61,
       type: 3}
   - <Name>k__BackingField: Carriage
     <ID>k__BackingField: 8
@@ -69,7 +69,32 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 8228745340084211855, guid: 2df12d648c9257545bede7ea5227daad,
       type: 3}
   - <Name>k__BackingField: seventh house
-    <ID>k__BackingField: 10
+    <ID>k__BackingField: 11
     <Size>k__BackingField: {x: 2, y: 2}
     <Prefab>k__BackingField: {fileID: 3202265278410977424, guid: 4f2dfe03ab6605140b55b12a92b13f83,
+      type: 3}
+  - <Name>k__BackingField: eightth house
+    <ID>k__BackingField: 12
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 2849484971856194433, guid: 4071ef4e8a8269d458584530a2390ecd,
+      type: 3}
+  - <Name>k__BackingField: ninth house
+    <ID>k__BackingField: 13
+    <Size>k__BackingField: {x: 4, y: 2}
+    <Prefab>k__BackingField: {fileID: 629308032141489651, guid: 74fb80429e3122c4486349b767c0ebcc,
+      type: 3}
+  - <Name>k__BackingField: tenth house
+    <ID>k__BackingField: 14
+    <Size>k__BackingField: {x: 2, y: 3}
+    <Prefab>k__BackingField: {fileID: 4500043820027997949, guid: 450df73991e4e204897de1fe4e53c788,
+      type: 3}
+  - <Name>k__BackingField: second booth
+    <ID>k__BackingField: 15
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 8316676250994192617, guid: aa2793318a38fc24daf61374c9d78c3b,
+      type: 3}
+  - <Name>k__BackingField: third booth
+    <ID>k__BackingField: 16
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 2795796594573292815, guid: ba7e8ee2efb9281408d3a66b1b52dbbc,
       type: 3}

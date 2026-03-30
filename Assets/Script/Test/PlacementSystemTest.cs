@@ -137,11 +137,20 @@ public class PlacementSystemTest : MonoBehaviour
     public void LoadSceneView()
     {
         SpawnInitialObject(1, new Vector3Int(-6, 0, -4));
-        SpawnInitialObject(2, new Vector3Int(4, 0, -1));
-        SpawnInitialObject(3, new Vector3Int(8, 0, 2));
+        SpawnInitialObject(2, new Vector3Int(1, 0, -2));
+        SpawnInitialObject(3, new Vector3Int(8, 0, -4));
         SpawnInitialObject(4, new Vector3Int(0, 0, -4));
         SpawnInitialObject(5, new Vector3Int(-2, 0, -5));
         SpawnInitialObject(6, new Vector3Int(-4, 0, -4));
-        SpawnInitialObject(7, new Vector3Int(2, 0, -5));
+        SpawnInitialObject(7, new Vector3Int(1, 0, -5));
+        SpawnInitialObject(8, new Vector3Int(4, 0, 0));
+        SpawnInitialObject(9, new Vector3Int(3, 0, 4));
+        SpawnInitialObject(10, new Vector3Int(5, 0, 4));
+        SpawnInitialObject(11, new Vector3Int(8, 0, 0));
+        SpawnInitialObject(12, new Vector3Int(1, 0, 2));
+        SpawnInitialObject(13, new Vector3Int(-4, 0, 4));
+        SpawnInitialObject(14, new Vector3Int(-3, 0, 1));
+        SpawnInitialObject(15, new Vector3Int(4, 0, -4));
+        SpawnInitialObject(16, new Vector3Int(2, 0, 4));
     }
 }
