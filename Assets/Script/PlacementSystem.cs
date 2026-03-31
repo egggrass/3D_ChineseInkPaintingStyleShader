@@ -45,7 +45,7 @@ public class PlacementSystem : MonoBehaviour
 
         SpawnInitialObject(1, new Vector3Int(-6, 0, -4));
         SpawnInitialObject(2, new Vector3Int(4, 0, -1));
-        SpawnInitialObject(3, new Vector3Int(8, 0, 0));
+        SpawnInitialObject(3, new Vector3Int(8, 0, 2));
         SpawnInitialObject(4, new Vector3Int(0, 0, -4));
         SpawnInitialObject(5, new Vector3Int(-2, 0, -5));
         SpawnInitialObject(6, new Vector3Int(-4, 0, -4));
@@ -143,13 +143,13 @@ public class PlacementSystem : MonoBehaviour
         Vector3 worldPosition = grid.GetCellCenterWorld(gridPosition);
 
         // 3. 通知 ObjectPlacer 生成模型，并获取它在列表中的索引
-        int placedObjectIndex = objectPlacer.PlaceObject(itemData.Prefab, worldPosition);
+        //int placedObjectIndex = objectPlacer.PlaceObject(itemData.Prefab, worldPosition);
 
         // 4. 根据物体的 ID 判断它是地板还是家具，并存入对应的 GridData
         GridData selectedData = itemData.ID == 0 ? floorData : furnitureData;
 
         // 5. 让逻辑层记录下这个物体
-        selectedData.AddObjectAt(gridPosition, itemData.Size, itemData.ID, placedObjectIndex);
+      //  selectedData.AddObjectAt(gridPosition, itemData.Size, itemData.ID, placedObjectIndex);
     }
 
 

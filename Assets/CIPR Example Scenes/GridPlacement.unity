@@ -536,7 +536,7 @@ PrefabInstance:
     - target: {fileID: 7710661998669951558, guid: 4c49061afaa8231468f4a4c9a386e0a1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7710661998669951559, guid: 4c49061afaa8231468f4a4c9a386e0a1,
         type: 3}
@@ -1138,7 +1138,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2090372055}
+      objectReference: {fileID: 0}
     - target: {fileID: 7897775575725484003, guid: 8ece0f0faf8317849a46eacc430a72b1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -1317,7 +1317,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2090372055}
+      objectReference: {fileID: 0}
     - target: {fileID: 7897775575725484003, guid: 8ece0f0faf8317849a46eacc430a72b1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -2000,7 +2000,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2090372055}
+      objectReference: {fileID: 0}
     - target: {fileID: 7897775575725484003, guid: 8ece0f0faf8317849a46eacc430a72b1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -2157,7 +2157,7 @@ Transform:
   m_GameObject: {fileID: 1533725446}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0.05, z: -0.5}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2408,7 +2408,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2090372055}
+      objectReference: {fileID: 0}
     - target: {fileID: 7897775575725484003, guid: 8ece0f0faf8317849a46eacc430a72b1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -2460,7 +2460,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2090372054}
-  - component: {fileID: 2090372055}
   m_Layer: 0
   m_Name: PlacementSystem
   m_TagString: Untagged
@@ -2483,26 +2482,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1166861165}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2090372055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090372053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9df7c6ed52a9a54abcbb316c751fc32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseIndicator: {fileID: 1533725446}
-  cellIndicator: {fileID: 173283315}
-  inputManager: {fileID: 814459079}
-  grid: {fileID: 1296687890}
-  database: {fileID: 11400000, guid: 1a41b98e0bb9ad54492e1f01292068cf, type: 2}
-  gridVisualization: {fileID: 745345582}
-  audio: {fileID: 0}
-  previewRenderer: {fileID: 173283318}
 --- !u!1 &2123626988
 GameObject:
   m_ObjectHideFlags: 0
