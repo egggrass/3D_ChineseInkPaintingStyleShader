@@ -16,7 +16,7 @@ MonoBehaviour:
   - <Name>k__BackingField: Character
     <ID>k__BackingField: 0
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 6023762561644598058, guid: 0ef3c289e2df5b94f809ded9c87ceff4,
+    <Prefab>k__BackingField: {fileID: 2719865901543699653, guid: 2f78acb4d40e6cd468b3e16362f88ed9,
       type: 3}
   - <Name>k__BackingField: Wall
     <ID>k__BackingField: 1
@@ -55,7 +55,7 @@ MonoBehaviour:
       type: 3}
   - <Name>k__BackingField: Carriage
     <ID>k__BackingField: 8
-    <Size>k__BackingField: {x: 2, y: 1}
+    <Size>k__BackingField: {x: 1, y: 2}
     <Prefab>k__BackingField: {fileID: 2816391727273203381, guid: e0f8e9b6e409f4144b64797da12dd56e,
       type: 3}
   - <Name>k__BackingField: fifth house
@@ -97,4 +97,9 @@ MonoBehaviour:
     <ID>k__BackingField: 16
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 2795796594573292815, guid: ba7e8ee2efb9281408d3a66b1b52dbbc,
+      type: 3}
+  - <Name>k__BackingField: group1
+    <ID>k__BackingField: 17
+    <Size>k__BackingField: {x: 1, y: 2}
+    <Prefab>k__BackingField: {fileID: 7372595485398991765, guid: e51215b8c87db2f4487098d8e3fab115,
       type: 3}

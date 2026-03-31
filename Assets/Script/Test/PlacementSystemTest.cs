@@ -152,5 +152,6 @@ public class PlacementSystemTest : MonoBehaviour
         SpawnInitialObject(14, new Vector3Int(-2, 0, -2));
         SpawnInitialObject(15, new Vector3Int(2, 0, -5));
         SpawnInitialObject(16, new Vector3Int(1, 0, 3));
+        SpawnInitialObject(17, new Vector3Int(3, 0, -6));
     }
 }
