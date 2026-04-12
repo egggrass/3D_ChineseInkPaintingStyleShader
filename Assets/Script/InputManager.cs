@@ -6,6 +6,9 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField]
     private Camera sceneCamera;
+    public CameraSwitcher cameraSwicher;
+    public Camera mainCamera;
+    public Camera paintingCamera;
 
     private Vector3 lastPosition;
 
@@ -31,6 +34,12 @@ public class InputManager : MonoBehaviour
 
     public Vector3 GetSelectedMapPosition ()
     {
+        if (cameraSwicher.isMainView)
+        {
+            sceneCamera = mainCamera;
+        }
+        else sceneCamera = paintingCamera;
+
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = sceneCamera.nearClipPlane;
         Ray ray = sceneCamera.ScreenPointToRay(mousePos);
